@@ -99,3 +99,15 @@ body {
         padding-top: 184px;
     }
 }
+
+
+/* pad the top navigation a little for mobile devices */
+
+@media (max-width: 992px) {
+    .header-container {
+        padding-top: 136px;
+    }
+    body {
+        height: calc(100vh - 136px);
+    }
+}
