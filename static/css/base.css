@@ -62,6 +62,11 @@ body {
     background: #000 !important;
 }
 
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 .overlay {
     height: 100%;
     width: 100%;
