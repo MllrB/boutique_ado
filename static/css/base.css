@@ -97,6 +97,21 @@ a.category-badge>span.badge:hover {
     z-index: -1;
 }
 
+.message-container {
+    position: fixed;
+    top: 74px;
+    right: 28px;
+    z-index: 9999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 
 /* -------------------------------- Media Queries */
 
