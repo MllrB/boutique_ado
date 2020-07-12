@@ -9,7 +9,7 @@ class OrderForm(forms.ModelForm):
                   'street_address1', 'street_address2', 'street_address3',
                   'town_or_city', 'county', 'post_code', 'country',)
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
         labels and set focus on full name field
