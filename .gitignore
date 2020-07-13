@@ -4,3 +4,4 @@ __pycache__
 django_workspace.code-workspace
 .vscode
 env
+env.py
