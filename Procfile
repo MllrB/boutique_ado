@@ -1,1 +1,1 @@
-web: gunicorn django.wsgi:application
+web: gunicorn boutique-ado.wsgi:application
