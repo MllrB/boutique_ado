@@ -120,16 +120,16 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.parse('postgres://tivcjuejzzroiz:21aea3ed01b3ef989dd24b7e2159c02f62d7760c7276380d3e4d6e0d602f69f0@ec2-54-247-103-43.eu-west-1.compute.amazonaws.com:5432/d645pogl6nfv2s')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://tivcjuejzzroiz:21aea3ed01b3ef989dd24b7e2159c02f62d7760c7276380d3e4d6e0d602f69f0@ec2-54-247-103-43.eu-west-1.compute.amazonaws.com:5432/d645pogl6nfv2s')
+# }
 
 
 # Password validation
