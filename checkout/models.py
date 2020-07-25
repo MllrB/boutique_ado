@@ -7,10 +7,13 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from products.models import Product
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=60, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -30,9 +33,9 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """ Generate a random, unique order number using UUID """
-        
+
         return uuid.uuid4().hex.upper()
-    
+
     def update_total(self):
         """
         Update grandtotal each time a line item is added
@@ -44,7 +47,7 @@ class Order(models.Model):
             self.delivery_cost = self.order_total * settings.STD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-        
+
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
@@ -57,10 +60,10 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return self.order_number
-    
+
 
 
 class OrderLineItem(models.Model):
