@@ -20,7 +20,6 @@ class Order(models.Model):
     phone_number = models.CharField(max_length=15, null=False, blank=False)
     street_address1 = models.CharField(max_length=180, null=False, blank=False)
     street_address2 = models.CharField(max_length=180, null=True, blank=True)
-    street_address3 = models.CharField(max_length=180, null=True, blank=True)
     town_or_city = models.CharField(max_length=180, null=True, blank=True)
     county = models.CharField(max_length=180, null=True, blank=True)
     post_code = models.CharField(max_length=8, null=True, blank=True)

@@ -16,7 +16,6 @@ class UserProfile(models.Model):
     default_phone_number = models.CharField(max_length=15, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=180, null=True, blank=True)
     default_street_address2 = models.CharField(max_length=180, null=True, blank=True)
-    default_street_address3 = models.CharField(max_length=180, null=True, blank=True)
     default_town_or_city = models.CharField(max_length=180, null=True, blank=True)
     default_county = models.CharField(max_length=180, null=True, blank=True)
     default_post_code = models.CharField(max_length=8, null=True, blank=True)

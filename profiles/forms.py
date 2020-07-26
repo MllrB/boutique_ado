@@ -18,7 +18,6 @@ class UserProfileForm(forms.ModelForm):
             'default_phone_number': 'Phone Number', 
             'default_street_address1': 'Address Line 1',
             'default_street_address2': 'Address Line 2',
-            'default_street_address3': 'Address Line 3',
             'default_town_or_city': 'Town/City',
             'default_county': 'County',
             'default_post_code': 'Postcode/Eircode',
