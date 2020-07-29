@@ -42,7 +42,16 @@
                 {{ product.rating }}/5
             </small>
             {% else %}
-            <small class="text-muted">No rating</small>
+                <small class="text-muted">No rating</small>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                <p>
+                    <small>
+                        <a href="{% url 'edit_product' product.id %}" class="text-muted text-warning">Edit</a>
+                        |
+                        <a href="{% url 'delete_product' product.id %}" class="text-muted text-danger">Delete</a>
+                    </small>
+                </p>
             {% endif %}
             <p class="mt-3">{{ product.description }}</p>
 
