@@ -21,3 +21,9 @@ class ProductForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+            if field_name == 'rating':
+                field.widget.attrs['type'] = 'number'
+                field.widget.attrs['min'] = '0'
+                field.widget.attrs['max'] = '5'
+                field.widget.attrs['step'] = '1'
+
