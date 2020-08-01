@@ -51,6 +51,11 @@ class StripeWH_Handler:
         """
         Handles payment_intent.succeeded webhook from Stripe
         """
+
+        return HttpResponse(
+            content=f'payment success Webhook recevied: {event["type"]}',
+            status=200)
+        
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.basket
@@ -63,10 +68,6 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == '':
                 shipping_details.address[field] = None
-
-        return HttpResponse(
-            content=f'payment success Webhook recevied: {event["type"]}',
-            status=200)
         
         #Update profile information if save_info was checked
         profile = None
