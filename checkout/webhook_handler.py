@@ -59,7 +59,7 @@ class StripeWH_Handler:
         else:
             bag = None
         
-        if intent.metadata.save_info
+        if intent.metadata.save_info:
             save_info = intent.metadata.save_info
         else:
             save_info = False
