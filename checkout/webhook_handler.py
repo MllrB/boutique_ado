@@ -54,8 +54,16 @@ class StripeWH_Handler:
         
         intent = event.data.object
         pid = intent.id
-        #bag = intent.metadata.basket
-        save_info = intent.metadata.save_info
+        if intent.metadata.basket:
+            bag = intent.metadata.basket
+        else:
+            bag = None
+        
+        if intent.metadata.save_info
+            save_info = intent.metadata.save_info
+        else:
+            save_info = False
+        
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount /100, 2)
