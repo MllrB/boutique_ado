@@ -63,6 +63,7 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
     }
     var url = '/checkout/cache_checkout_data/';
+
     $.post(url, postData).done(function() {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -75,7 +76,7 @@ form.addEventListener('submit', function(ev) {
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
                         city: $.trim(form.town_or_city.value),
-                        county: $.trim(form.county.value),
+                        state: $.trim(form.county.value),
                         country: $.trim(form.country.value),
                     },
                 }
@@ -87,7 +88,7 @@ form.addEventListener('submit', function(ev) {
                     line1: $.trim(form.street_address1.value),
                     line2: $.trim(form.street_address2.value),
                     city: $.trim(form.town_or_city.value),
-                    county: $.trim(form.county.value),
+                    state: $.trim(form.county.value),
                     country: $.trim(form.country.value),
                     postal_code: $.trim(form.post_code.value),
                 }
@@ -102,8 +103,6 @@ form.addEventListener('submit', function(ev) {
                 <span>${result.error.message}</span>
                 `;
                 $(errorDiv).html(html);
-                console.log(result)
-                console.log(result.error)
 
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);
