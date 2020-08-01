@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['ci-boutique-ado.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['ci-boutique-ado.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -196,9 +196,9 @@ if 'USE_AWS' in os.environ:
 
     #static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
+    STATICFILES_LOCATION = 'static/'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
+    MEDIAFILES_LOCATION = 'media/'
 
     # overide static and media URLs in production
     STATIC_URL = f'{AWS_STORAGE_BUCKET_NAME}/{STATICFILES_LOCATION}'
