@@ -53,9 +53,6 @@ class StripeWH_Handler:
         """
         
         intent = event.data.object
-        return HttpResponse(
-            content=f'payment success Webhook recevied: {event["type"]}',
-            status=200)
         pid = intent.id
         bag = intent.metadata.basket
         save_info = intent.metadata.save_info
@@ -63,6 +60,10 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount /100, 2)
 
+        return HttpResponse(
+            content=f'payment success Webhook recevied: {event["type"]}',
+            status=200)
+        
         # clean data in shipping details
         for field, value in shipping_details.address.items():
             if value == '':
