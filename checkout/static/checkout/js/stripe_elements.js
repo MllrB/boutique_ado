@@ -77,7 +77,7 @@ form.addEventListener('submit', function(ev) {
                         city: $.trim(form.town_or_city.value),
                         county: $.trim(form.county.value),
                         country: $.trim(form.country.value),
-                    }
+                    },
                 }
             },
             shipping: {
@@ -102,6 +102,8 @@ form.addEventListener('submit', function(ev) {
                 <span>${result.error.message}</span>
                 `;
                 $(errorDiv).html(html);
+                console.log(result)
+                console.log(result.error)
 
                 $('#payment-form').fadeToggle(100);
                 $('#loading-overlay').fadeToggle(100);
