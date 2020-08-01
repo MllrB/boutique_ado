@@ -54,8 +54,8 @@ class StripeWH_Handler:
         
         intent = event.data.object
         pid = intent.id
-        if intent.metadata.basket:
-            bag = intent.metadata.basket
+        if intent.metadata.bag:
+            bag = intent.metadata.bag
         else:
             bag = None
         
