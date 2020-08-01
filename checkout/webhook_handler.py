@@ -64,6 +64,10 @@ class StripeWH_Handler:
             if value == '':
                 shipping_details.address[field] = None
 
+        return HttpResponse(
+            content=f'payment success Webhook recevied: {event["type"]}',
+            status=200)
+        
         #Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
