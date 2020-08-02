@@ -51,21 +51,21 @@ class StripeWH_Handler:
         """
         Handles payment_intent.succeeded webhook from Stripe
         """
-        
+
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
-        
+
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount /100, 2)
-        
+
         # clean data in shipping details
         for field, value in shipping_details.address.items():
             if value == '':
                 shipping_details.address[field] = None
-        
+
         #Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
@@ -147,11 +147,11 @@ class StripeWH_Handler:
                                 product_size=size
                             )
                             order_line_item.save()
-            except Exception as e:
+            except Exception as err:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'Webhook recevied: {event["type"]} | ERROR: {e}',
+                    content=f'Webhook recevied: {event["type"]} | ERROR: {err}',
                     status=500)
 
         self._send_confirmation_email(order)
